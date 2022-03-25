@@ -1,0 +1,47 @@
+spring:
+  servlet: 
+    multipart:
+       max-file-size: 10MB
+       max-request-size: 10MB
+
+  mail: 
+    host: 
+    port: 587
+    username: 
+    password: 
+    properties:
+        mail:
+            smtp:              
+                auth: true
+                starttls:
+                    enable: false
+  datasource: 
+    mysql:
+     jdbc-url: jdbc:mysql://mysql.poltrona.com.ar/poltrona
+     username: poltrona
+     password: Poltrona_2021
+     driver-class-name: com.mysql.cj.jdbc.Driver  
+    sqlserver: 
+     jdbc-url: jdbc:sqlserver://poltrona2.ddns.net;databaseName=SGIM3
+     username: usersgim
+     password: passsgim
+     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    
+        
+  thymeleaf:
+    cache: false 
+server:
+  ssl:
+    key-store: file:keystore.jks
+    key-password: poltrona 
+    key-store-password: poltrona
+    ciphers:
+    - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,SSL_RSA_WITH_3DES_EDE_CBC_SHA
+    protocol: TLSv1.2
+    enabled-protocols:
+    - TLSv1,TLSv1.1,TLSv1.2
+  error:
+    whitelabel:
+      enabled: false
+
+

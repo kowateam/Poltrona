@@ -1,0 +1,87 @@
+{"properties": [
+  {
+    "name": "spring.mysql.datasource.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mysql.datasource.url'"
+  },
+  {
+    "name": "spring.mysql.datasource.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mysql.datasource.username'"
+  },
+  {
+    "name": "spring.mysql.datasource.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mysql.datasource.password'"
+  },
+  {
+    "name": "spring.mysql.datasource.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mysql.datasource.driver-class-name'"
+  },
+  {
+    "name": "spring.sqlserver.datasource.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.sqlserver.datasource.url'"
+  },
+  {
+    "name": "spring.sqlserver.datasource.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.sqlserver.datasource.username'"
+  },
+  {
+    "name": "spring.sqlserver.datasource.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.sqlserver.datasource.password'"
+  },
+  {
+    "name": "spring.sqlserver.datasource.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.sqlserver.datasource.driver-class-name'"
+  },
+  {
+    "name": "spring.datasource.sqlserver.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.sqlserver.url'"
+  },
+  {
+    "name": "spring.datasource.sqlserver.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.sqlserver.username'"
+  },
+  {
+    "name": "spring.datasource.sqlserver.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.sqlserver.password'"
+  },
+  {
+    "name": "spring.datasource.mysql.jdbc-url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.mysql.jdbc-url'"
+  },
+  {
+    "name": "spring.datasource.mysql.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.mysql.username'"
+  },
+  {
+    "name": "spring.datasource.mysql.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.mysql.password'"
+  },
+  {
+    "name": "spring.datasource.mysql.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.mysql.driver-class-name'"
+  },
+  {
+    "name": "spring.datasource.sqlserver.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.sqlserver.driver-class-name'"
+  },
+  {
+    "name": "spring.datasource.sqlserver.jdbc-url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.sqlserver.jdbc-url'"
+  }
+]}

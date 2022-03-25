@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Poltrona | Diseño de interiores</title>
+
+	<meta name="application-name" content="Poltrona">
+
+	<link rel="icon" sizes="192x192" href="img/pol/favicon/icon.png">
+
+	<link rel="apple-touch-icon" href="img/pol/favicon/ios-icon.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="img/pol/favicon/touch-icon-ipad.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="img/pol/favicon/touch-icon-iphone-retina.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="img/pol/favicon/touch-icon-ipad-retina.png">
+
+	<meta name="msapplication-wide310x150logo" content="img/pol/favicon/icon_widetile.png">
+	<meta name="msapplication-square310x310logo" content="img/pol/favicon/icon_largetile.png">
+	<meta name="msapplication-square70x70logo" content="img/pol/favicon/icon_smalltile.png">
+	<meta name="msapplication-square150x150logo" content="img/pol/favicon/icon_mediumtile.png">
+
+	<!-- JQuery -->
+	<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+
+	<!-- Styles -->
+	<link href="/css/styles.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<style>
+	.input-logout {
+		background: transparent;
+		border: 0;
+		position: absolute;
+		left: 0;
+		width: 50%;
+		height: 50px;
+	}
+</style>
+
+<body>
+    <div class="oscurecer hidden3">
+</div>
+	<span class="loading-spinner" th:classappend="${spinner != null} ? '' : hidden ">
+		<img src="/img/shared/spinner.gif" width="60" height="60" alt="Cargando">
+	</span>
+
+	<nav class="floating-menu">
+		<div class="container">
+			<div class="row">
+				<form th:if="${session.usuariosession}"action="/logout" method="post" class="col-6 text--center">
+					<input class="input-logout" type="submit" value="" />
+					<img class="item" src="/img/shared/logout.svg" alt="Salir">
+					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+				</form>
+				<form  th:if="${session.usuariosession == null}" class="col-6 text--center modalComunicacion2">
+					<a href="#" class="modalComunicacion">
+						<img src="/img/Talk.svg" alt="">
+					</a>
+				</form>
+
+				<div class="col-6 text--center">
+					<a href="/" target="_self">
+						<img class="item" src="/img/shared/search.svg" alt="Buscar">
+					</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<a href="/"><img src="/img/shared/logo-header.svg" alt="Poltrona"></a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="content">
+		<div class="container column-wrapper">
+			<div class="row">
+				<div class="col-xs-12">
+					
+                    <h1 class="x3 x5--top">Bienvenido!</h1>
+					<form action="/buscador" method="post">
+						<div class="input-group x5">
+
+							<label class="form-label" for="buscarProducto">Escribir para filtrar resultados</label>
+							<input class="form-control x2" th:name="buscarProducto" id="buscarProducto" type="text">
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+							<input type="submit" style="position: absolute; left: -9999px"/>
+						</div>
+					</form>
+                    <p class="p22">Categorías</p>
+                    <div class="historys">
+                        <a href="/buscar/MUEBLES">
+                            <div class="history">
+                                <div class="imgCategory c1">
+                                </div>
+                                <p>Muebles</p>
+                            </div>
+                        </a>
+                        <a href="/buscar/DECORACIÓN">
+                            <div class="history">
+                                <div class="imgCategory c2">
+                                </div>
+                                <p>Decoración</p>
+                            </div>
+                        </a>
+                        <a href="/buscar/ILUMINACION">
+                            <div class="history">
+                                <div class="imgCategory c3">
+                                </div>
+                                <p>Iluminacíon</p>
+                            </div>
+                        </a>
+                        <a href="/buscar/BLANCO">
+                            <div class="history">
+                                <div class="imgCategory c4">
+                                </div>
+                                <p>Blanco</p>
+                            </div>
+                        </a>
+                        <a href="/buscar/ALFOMBRA">
+                            <div class="history  historyUltimo">
+                                <div class="imgCategory c5">
+                                </div>
+                                <p>Alfombras</p>
+                            </div>
+                        </a>
+                    
+                    </div>
+                    <p th:if="${sub}" class="p22">Subcategorías</p>
+                    <div th:if="${sub}" class="historys3">
+                        <a href="/buscar/SOFAS">
+                            <div class="history">
+                                <div class="imgCategory c11 sofa1">
+                                    <p>Sofas</p>
+                                </div>
+                        
+                            </div>
+                        </a>
+                        <a href="/buscar/SILLONES">
+                            <div class="history">
+                                <div class="imgCategory c11 sillon1">
+                                    <p>Sillones</p>
+                                </div>
+                            
+                            </div>
+                        </a>
+                        <a href="/buscar/SILLAS">
+                            <div class="history">
+                                <div class="imgCategory c11 silla1">
+                                    <p>Sillas</p>
+                                </div>
+                                
+                            </div>
+                        </a>
+                        <a href="/buscar/MESAS">
+                            <div class="history">
+                                <div class="imgCategory c11 mesa1">
+                                    <p>Mesas</p>
+                                </div>
+                            
+                            </div>
+                        </a>
+                
+                         <a href="/buscar/BANQUETAS">
+                            <div class="history">
+                                <div class="imgCategory c11 banqueta1">
+                                    <p>Banquetas</p>
+                                </div>
+                                
+                            </div>
+                        </a> 
+                    </div>
+
+
+					<h2>Productos (<span  th:text="${totalprod}"></span>)</h2>
+					<h2 th:if="${error}" th:text="${error}" style="font-size: 16px; color: #ff3030;"></h2>
+					<div th:each="material : ${list}">
+						<a th:href="@{/producto/}+${material.codigoMaterial}" class="searchProduct hidden3">
+							<div class="imgProd">
+								<!--<img th:src="@{/loadfoto/} + ${material.codigoMaterial}" alt="">-->
+								<img loading="lazy" th:src="@{/loadfoto/} + ${material.codigoMaterial}" onerror="this.onerror=null;this.src='/img/sin-img.png';">
+								<!--<img th:src="@{/loadfoto/} + ${material.codigoMaterial} != null  ? @{/loadfoto/} + ${material.codigoMaterial} : '/img/shared/cover-photo.jpg'}" th:alt="${comment.user.nameSurname}"/>-->
+								<div id="parrafos15">
+									<p id="p1" th:text="${material.material}">Nombre producto, Marca</p>
+									<div><p>Precio:</p><p class="precio2" th:if="${material.PrecioUnitarioVtaTipoMoneda != 0}" th:text="${material.PrecioUnitarioVtaTipoMoneda}"></p>
+									<p th:if="${material.PrecioUnitarioVtaTipoMoneda == 0}">No tiene precio </p></div>
+								</div>
+							</div>
+
+							<img id="flecha" src="/img/Subtract.svg" alt="">
+						</a>
+					</div>
+
+					<a th:if="${#lists.size(list) gt 5 }"href="#" class="cargar10">
+						<p> Cargar 5 más</p>
+
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+    <div class="modalComu">
+        <div class="modalComu2">
+            <a target="_blank" href="https://www.instagram.com/poltronainteriores/?hl=es-la" class="instMod"> <img  src="/img/instagram.svg" alt=""></a>
+            <a target="_blank" href="https://wa.me/5492612529698?text=Hola!%20Quiero%20saber%20más%20sobre%20uno%20de%20sus%20productos"> <img src="/img/wpp.svg" alt=""></a>
+        </div>
+        <div class="modalComu3">
+            <p>Volver</p>
+        </div>
+    </div>
+
+
+</body>
+
+<!-- Javascript -->
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/buscar.js"></script>
+
+<script type="text/javascript" src="/js/scripts.js"></script>
+<script type="text/javascript" src="/js/buscarC.js"></script>
+
+</html>

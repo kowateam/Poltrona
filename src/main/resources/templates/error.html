@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Poltrona | Diseño de interiores</title>
+
+	<meta name="application-name" content="Poltrona">
+
+	<link rel="icon" sizes="192x192" href="/img/pol/favicon/icon.png">
+
+	<link rel="apple-touch-icon" href="/img/pol/favicon/ios-icon.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/img/pol/favicon/touch-icon-ipad.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/img/pol/favicon/touch-icon-iphone-retina.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/img/pol/favicon/touch-icon-ipad-retina.png">
+
+	<meta name="msapplication-wide310x150logo" content="/img/pol/favicon/icon_widetile.png">
+	<meta name="msapplication-square310x310logo" content="/img/pol/favicon/icon_largetile.png">
+	<meta name="msapplication-square70x70logo" content="/img/pol/favicon/icon_smalltile.png">
+	<meta name="msapplication-square150x150logo" content="/img/pol/favicon/icon_mediumtile.png">
+
+	<!-- JQuery -->
+	<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+
+	<!-- Styles -->
+	<link href="/css/styles.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<img src="/img/shared/logo-header.svg" alt="Poltrona">
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="content">
+		<div class="container column-wrapper">
+			<div class="row x5--top">
+				<div class="col-xs-12">
+					 <div class="container d-flex  flex-column">
+                <!-- Masthead Avatar Image-->
+                <h1 class="masthead-heading text-uppercase mb-0" style="color: #555555;">ERROR</h1>
+                <h1  class="masthead-heading mb-0" style="color: #555555;" th:text="${codigo}"></h1>
+                <br/>
+                <h2 class="masthead-subheading mb-0" style="color: #555555;" th:text="${mensaje == null ? 'Intenta nuevamente' : mensaje}"></h2>
+            </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+
+<!-- Javascript -->
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/scripts.js"></script>
+
+</html>
