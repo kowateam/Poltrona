@@ -83,5 +83,45 @@
     "name": "spring.datasource.sqlserver.jdbc-url",
     "type": "java.lang.String",
     "description": "A description for 'spring.datasource.sqlserver.jdbc-url'"
+  },
+  {
+    "name": "spring.datasource.sqlserver2.jdbc-url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.sqlserver2.jdbc-url'"
+  },
+  {
+    "name": "spring.datasource.sqlserver2.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.sqlserver2.username'"
+  },
+  {
+    "name": "spring.datasource.sqlserver2.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.sqlserver2.password'"
+  },
+  {
+    "name": "spring.datasource.sqlserver2.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.sqlserver2.driver-class-name'"
+  },
+  {
+    "name": "spring.datasource.sqlserver3.jdbc-url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.sqlserver3.jdbc-url'"
+  },
+  {
+    "name": "spring.datasource.sqlserver3.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.sqlserver3.username'"
+  },
+  {
+    "name": "spring.datasource.sqlserver3.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.sqlserver3.password'"
+  },
+  {
+    "name": "spring.datasource.sqlserver3.driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.sqlserver3.driver-class-name'"
   }
 ]}

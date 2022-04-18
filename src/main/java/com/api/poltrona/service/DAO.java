@@ -13,16 +13,16 @@ public abstract class DAO {
 	protected Statement sentencia = null;
 	
 	
-	private final String USER = "usersgim";
-	private final String PASSWORD = "passsgim";
-	private final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	private final String USER = "poltrona";
+	private final String PASSWORD = "Poltrona_2021";
+	private final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	
 	
 	protected void conectarBase() throws Exception {
 		
 		try {
 			Class.forName(DRIVER);
-			String urlBaseDeDatos = "jdbc:sqlserver://poltrona2.ddns.net;databaseName=SGIM3";
+			String urlBaseDeDatos = "jdbc:mysql://mysql.poltrona.com.ar/poltrona";
 			conexion = DriverManager.getConnection(urlBaseDeDatos,USER,PASSWORD);
 			
 			

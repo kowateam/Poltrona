@@ -225,7 +225,7 @@ a:hover {
   height: 0px;
 }
 .history{
-  width: 80px;
+  width: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;

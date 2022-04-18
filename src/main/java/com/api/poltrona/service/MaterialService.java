@@ -37,7 +37,7 @@ public class MaterialService {
 	 }
 	 
 	 public List<Materiales> buscarMaterial(String codigoMaterial){
-		 String sql = "SELECT idMaterial,codigoMaterial,material,nombreCompleto,stock,especificaciones,precioUnitarioVtaTipoMoneda,qr FROM Materiales where codigoMaterial like '" +codigoMaterial+"'";
+		 String sql = "SELECT idMaterial,codigoMaterial,material,nombreCompleto,stock,especificaciones,precioUnitarioVtaTipoMoneda,qr,v_catalogo  FROM Materiales where codigoMaterial like '" +codigoMaterial+"'";
 		 List<Materiales> materiales= jdbcTemplate2.query(sql, BeanPropertyRowMapper.newInstance(Materiales.class));
 		 return materiales;
 	 }
@@ -63,6 +63,12 @@ public class MaterialService {
 	
 	public List<Materiales> buscadorMaterial(String categoria) {
 		 String sql = "SELECT codigoMaterial,material,precioUnitarioVtaTipoMoneda FROM Materiales where (precioUnitarioVtaTipoMoneda > 0) AND ((nombreCompleto like '" +categoria+"%') OR (material like '" +categoria+"%')) ";
+		 List<Materiales> materiales= jdbcTemplate2.query(sql, BeanPropertyRowMapper.newInstance(Materiales.class));
+		 return materiales;
+	}
+
+	public List<Materiales> buscarMaterialesParaPortal() {
+		 String sql = "SELECT idMaterial,codigoMaterial,material,nombreCompleto,stock,especificaciones,qr,precioUnitarioVtaTipoMoneda,v_Catalogo FROM Materiales WHERE precioUnitarioVtaTipoMoneda > 0";
 		 List<Materiales> materiales= jdbcTemplate2.query(sql, BeanPropertyRowMapper.newInstance(Materiales.class));
 		 return materiales;
 	}

@@ -191,8 +191,8 @@
 								<!--<img th:src="@{/loadfoto/} + ${material.codigoMaterial} != null  ? @{/loadfoto/} + ${material.codigoMaterial} : '/img/shared/cover-photo.jpg'}" th:alt="${comment.user.nameSurname}"/>-->
 								<div id="parrafos15">
 									<p id="p1" th:text="${material.material}">Nombre producto, Marca</p>
-									<div><p>Precio:</p><p class="precio2" th:if="${material.PrecioUnitarioVtaTipoMoneda != 0}" th:text="${material.PrecioUnitarioVtaTipoMoneda}"></p>
-									<p th:if="${material.PrecioUnitarioVtaTipoMoneda == 0}">No tiene precio </p></div>
+									<div><p>Precio:</p><p class="precio2" th:if="${material.precio_unitario != 0}" th:text="${material.precio_unitario}"></p>
+									<p th:if="${material.precio_unitario == 0}">No tiene precio </p></div>
 								</div>
 							</div>
 

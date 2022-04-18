@@ -26,7 +26,16 @@ spring:
      username: usersgim
      password: passsgim
      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    
+    sqlserver2: 
+     jdbc-url: jdbc:sqlserver://poltrona2.ddns.net;databaseName=SGIM3
+     username: usersgim
+     password: passsgim
+     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver 
+    sqlserver3: 
+     jdbc-url: jdbc:sqlserver://poltrona2.ddns.net;databaseName=SGIM3
+     username: usersgim
+     password: passsgim
+     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver 
         
   thymeleaf:
     cache: false 

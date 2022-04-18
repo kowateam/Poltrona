@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
-@SpringBootApplication
+@SpringBootApplication()
 @ComponentScan
 public class PoltronaApplication extends SpringBootServletInitializer{
 

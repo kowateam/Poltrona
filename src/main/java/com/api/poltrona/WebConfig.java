@@ -33,4 +33,25 @@ public class WebConfig {
  public JdbcTemplate jdbcTemplate2(@Qualifier("db2") DataSource ds) {
   return new JdbcTemplate(ds);
  }
+ @Bean(name = "db3")
+ @ConfigurationProperties(prefix = "spring.datasource.sqlserver2")
+ public DataSource dataSource3() {
+  return DataSourceBuilder.create().build();
+ }
+
+ @Bean(name = "jdbcTemplate3")
+ public JdbcTemplate jdbcTemplate3(@Qualifier("db3") DataSource ds) {
+  return new JdbcTemplate(ds);
+ }
+ 
+ @Bean(name = "db4")
+ @ConfigurationProperties(prefix = "spring.datasource.sqlserver3")
+ public DataSource dataSource4() {
+  return  DataSourceBuilder.create().build();
+ }
+
+ @Bean(name = "jdbcTemplate4")
+ public JdbcTemplate jdbcTemplate4(@Qualifier("db4") DataSource ds) {
+  return new JdbcTemplate(ds);
+ }
 }
