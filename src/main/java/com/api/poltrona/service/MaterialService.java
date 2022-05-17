@@ -22,6 +22,12 @@ public class MaterialService {
 	 @Autowired
 	 @Qualifier("jdbcTemplate2")
 	 private JdbcTemplate jdbcTemplate2;
+	 @Autowired
+	 @Qualifier("jdbcTemplate3")
+	 private JdbcTemplate jdbcTemplate3;
+	 @Autowired
+	 @Qualifier("jdbcTemplate4")
+	 private JdbcTemplate jdbcTemplate4;
 	 
 	public List<Materiales>getAll(){
 		 String sql = "SELECT codigoMaterial,material FROM Materiales WHERE precioUnitarioVtaTipoMoneda > 0";
@@ -68,10 +74,31 @@ public class MaterialService {
 	}
 
 	public List<Materiales> buscarMaterialesParaPortal() {
-		 String sql = "SELECT idMaterial,codigoMaterial,material,nombreCompleto,stock,especificaciones,qr,precioUnitarioVtaTipoMoneda,v_Catalogo FROM Materiales WHERE precioUnitarioVtaTipoMoneda > 0";
+		 String sql = "SELECT idMaterial,codigoMaterial,material,nombreCompleto,stock,especificaciones,precioUnitarioVtaTipoMoneda,v_Catalogo FROM Materiales WHERE precioUnitarioVtaTipoMoneda > 0";
 		 List<Materiales> materiales= jdbcTemplate2.query(sql, BeanPropertyRowMapper.newInstance(Materiales.class));
 		 return materiales;
 	}
+
+	public List<Materiales> buscarFotoMaterial() {
+		 String sql = "SELECT foto FROM Materiales WHERE precioUnitarioVtaTipoMoneda > 0";
+		 List<Materiales> materiales= jdbcTemplate2.query(sql, BeanPropertyRowMapper.newInstance(Materiales.class));
+		 return materiales;
+		
+	}
+
+	public List<Materiales> buscarMaterialBarraca() {
+		String sql = "SELECT idMaterial,codigoMaterial,material,nombreCompleto,stock,especificaciones,precioUnitarioVtaTipoMoneda,v_Catalogo FROM Materiales WHERE precioUnitarioVtaTipoMoneda > 0";
+		 List<Materiales> materiales= jdbcTemplate3.query(sql, BeanPropertyRowMapper.newInstance(Materiales.class));
+		 return materiales;
+	}
+
+	public List<Materiales> buscarMaterialPalmares() {
+		String sql = "SELECT idMaterial,codigoMaterial,material,nombreCompleto,stock,especificaciones,precioUnitarioVtaTipoMoneda,v_Catalogo FROM Materiales WHERE precioUnitarioVtaTipoMoneda > 0";
+		 List<Materiales> materiales= jdbcTemplate4.query(sql, BeanPropertyRowMapper.newInstance(Materiales.class));
+		 return materiales;
+	}
+	
+
 
 	
 }

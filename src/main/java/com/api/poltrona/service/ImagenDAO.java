@@ -13,7 +13,7 @@ public class ImagenDAO extends DAO {
 	public Foto buscarFotoMaterialPorCodigo(String codigomaterial) throws Exception {
 		try {
 			Foto img = new Foto();
-			String sql = "SELECT * FROM producto where codigo_material like '" +codigomaterial+"'";
+			String sql = "SELECT foto FROM producto where codigo_material like '" +codigomaterial+"'";
 			consultarBase(sql);
 			byte[] recuperado = null;
 			while(resultado.next()) {
@@ -21,7 +21,6 @@ public class ImagenDAO extends DAO {
 			if(foto != null) {
 			recuperado= foto.getBytes(1, (int) foto.length());
 			img.setContenido(recuperado);
-			System.out.println(img);
 			return img;
 			}}
 			return null;

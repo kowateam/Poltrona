@@ -22,17 +22,17 @@ spring:
      password: Poltrona_2021
      driver-class-name: com.mysql.cj.jdbc.Driver  
     sqlserver: 
-     jdbc-url: jdbc:sqlserver://poltrona2.ddns.net;databaseName=SGIM3
+     jdbc-url: jdbc:sqlserver://poltrona2.ddns.net;databaseName=SGIM3;enabledTLSProtocols=TLSv1.2
      username: usersgim
      password: passsgim
      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     sqlserver2: 
-     jdbc-url: jdbc:sqlserver://poltrona2.ddns.net;databaseName=SGIM3
+     jdbc-url: jdbc:sqlserver://190.15.203.50:8235;databaseName=SGIM3;sslProtocol=TLSv1.2
      username: usersgim
      password: passsgim
      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver 
     sqlserver3: 
-     jdbc-url: jdbc:sqlserver://poltrona2.ddns.net;databaseName=SGIM3
+     jdbc-url: jdbc:sqlserver://200.32.63.98;databaseName=SGIM3,enabledTLSProtocols=TLSv1.2
      username: usersgim
      password: passsgim
      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver 

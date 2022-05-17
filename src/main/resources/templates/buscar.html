@@ -187,7 +187,7 @@
 						<a th:href="@{/producto/}+${material.codigoMaterial}" class="searchProduct hidden3">
 							<div class="imgProd">
 								<!--<img th:src="@{/loadfoto/} + ${material.codigoMaterial}" alt="">-->
-								<img loading="lazy" th:src="@{/loadfoto/} + ${material.codigoMaterial}" onerror="this.onerror=null;this.src='/img/sin-img.png';">
+								<img loading="lazy" th:src="@{/loadfoto/} + ${material.codigoMaterial}+@{?quality=auto&format=webp}" onerror="this.onerror=null;this.src='/img/sin-img.png';">
 								<!--<img th:src="@{/loadfoto/} + ${material.codigoMaterial} != null  ? @{/loadfoto/} + ${material.codigoMaterial} : '/img/shared/cover-photo.jpg'}" th:alt="${comment.user.nameSurname}"/>-->
 								<div id="parrafos15">
 									<p id="p1" th:text="${material.material}">Nombre producto, Marca</p>

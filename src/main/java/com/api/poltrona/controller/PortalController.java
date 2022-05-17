@@ -11,6 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -79,6 +80,8 @@ public class PortalController {
 
 	@GetMapping("/")
 	public String buscar(ModelMap modelo, HttpSession session) {
+		
+		
 		List<Producto> productos = ps.buscarTodosLosProductos();
 		modelo.addAttribute("list", productos);
 		Usuario usuario = (Usuario) session.getAttribute("usuariosession");
@@ -87,88 +90,99 @@ public class PortalController {
 		modelo.addAttribute("totalprod", productos.size());
 		return "buscar.html";
 	}
-
+	//@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@GetMapping("crear")
-	public String crearProducto() {
-		ps.crearProducto();
-		return "buscar.html";
+	public String crearProducto() throws Exception {
+		//ps.crearProductoBarraca();
+		//ps.crearProductoRufino();
+		ps.crearProductoPalmares();
+		return "redirect:/";
 	}
-
+	
+	@GetMapping("/stock")
+	public String modificarStock() {
+		try {
+			ps.buscarStockRufino();
+			ps.buscarStockBarracas();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "redirect:/";
+	}
 	@GetMapping("/buscar/{categoria}")
 	public String buscarCategoria(@PathVariable String categoria, ModelMap modelo) {
-		List<Materiales> materiales = new ArrayList<>();
-		List<Materiales> materialestemp = new ArrayList<>();
-		System.out.println(categoria);
+		List<Producto> productos = new ArrayList<>();
+		List<Producto> producto2 = new ArrayList<>();
 		if (categoria.equals("MUEBLES")) {
 
-			materiales = ms.buscarMaterialesPorCategoria("MUEBLES");
-			materialestemp = ms.buscarMaterialesPorCategoria("MESAS");
-			for (Materiales materiales2 : materialestemp) {
-				materiales.add(materiales2);
+			productos = ps.buscarProductoPorCategoria("MUEBLES");
+			producto2 =ps.buscarProductoPorCategoria("MESAS");
+			for (Producto materiales2 : producto2) {
+				productos.add(materiales2);
 			}
-			materialestemp = ms.buscarMaterialesPorCategoria("SILLONES");
-			for (Materiales materiales2 : materialestemp) {
-				materiales.add(materiales2);
+			producto2 = ps.buscarProductoPorCategoria("SILLONES");
+			for (Producto materiales2 : producto2) {
+				productos.add(materiales2);
 			}
-			materialestemp = ms.buscarMaterialesPorCategoria("SILLAS");
-			for (Materiales materiales2 : materialestemp) {
-				materiales.add(materiales2);
+			producto2 = ps.buscarProductoPorCategoria("SILLAS");
+			for (Producto materiales2 : producto2) {
+				productos.add(materiales2);
 			}
-			materialestemp = ms.buscarMaterialesPorCategoria("SOFAS");
-			for (Materiales materiales2 : materialestemp) {
-				materiales.add(materiales2);
+			producto2 = ps.buscarProductoPorCategoria("SOFAS");
+			for (Producto materiales2 : producto2) {
+				productos.add(materiales2);
 			}
-			materialestemp = ms.buscarMaterialesPorCategoria("BANQUETAS");
-			for (Materiales materiales2 : materialestemp) {
-				materiales.add(materiales2);
+			producto2 = ps.buscarProductoPorCategoria("BANQUETAS");
+			for (Producto materiales2 : producto2) {
+				productos.add(materiales2);
 			}
 			modelo.addAttribute("sub", "sub");
-			System.out.println("los productos:" + materiales);
 		} else {
-			materiales = ms.buscarMaterialesPorCategoria(categoria);
+			productos = ps.buscarProductoPorCategoria(categoria);
 			if (categoria.equals("MESAS") || categoria.equals("SILLONES") || categoria.equals("SILLAS")
 					|| categoria.equals("SOFAS") || categoria.equals("BANQUETAS")) {
 				modelo.addAttribute("sub", "sub");
 			}
 		}
 
-		modelo.addAttribute("list", materiales);
-		modelo.addAttribute("totalprod", materiales.size());
+		modelo.addAttribute("list", productos);
+		modelo.addAttribute("totalprod", productos.size());
 		return "buscar.html";
 	}
 
 	@PostMapping("/buscador")
 	public String buscador(@RequestParam String buscarProducto, ModelMap modelo) {
-		List<Materiales> materiales = new ArrayList<>();
-		List<Materiales> materialestemp = new ArrayList<>();
+		List<Producto> productos = new ArrayList<>();
+		List<Producto> productos2 = new ArrayList<>();
 
 		if (buscarProducto.toUpperCase().equals("MUEBLES") || buscarProducto.toUpperCase().equals("MUEBLE")) {
 
-			materiales = ms.buscarMaterialesPorCategoria("MUEBLES");
-			materialestemp = ms.buscarMaterialesPorCategoria("MESAS");
-			for (Materiales materiales2 : materialestemp) {
-				materiales.add(materiales2);
+			productos = ps.buscarProductoPorCategoria("MUEBLES");
+			productos2 = ps.buscarProductoPorCategoria("MESAS");
+			for (Producto materiales2 : productos2) {
+				productos.add(materiales2);
 			}
-			materialestemp = ms.buscarMaterialesPorCategoria("SILLONES");
-			for (Materiales materiales2 : materialestemp) {
-				materiales.add(materiales2);
+			productos2 = ps.buscarProductoPorCategoria("SILLONES");
+			for (Producto materiales2 : productos2) {
+				productos.add(materiales2);
 			}
-			materialestemp = ms.buscarMaterialesPorCategoria("SILLAS");
-			for (Materiales materiales2 : materialestemp) {
-				materiales.add(materiales2);
+			productos2 = ps.buscarProductoPorCategoria("SILLAS");
+			for (Producto materiales2 : productos2) {
+				productos.add(materiales2);
 			}
-			materialestemp = ms.buscarMaterialesPorCategoria("SOFAS");
-			for (Materiales materiales2 : materialestemp) {
-				materiales.add(materiales2);
+			productos2 = ps.buscarProductoPorCategoria("SOFAS");
+			for (Producto materiales2 : productos2) {
+				productos.add(materiales2);
 			}
-			materialestemp = ms.buscarMaterialesPorCategoria("BANQUETAS");
-			for (Materiales materiales2 : materialestemp) {
-				materiales.add(materiales2);
+			productos2 = ps.buscarProductoPorCategoria("BANQUETAS");
+			for (Producto materiales2 : productos2) {
+				productos.add(materiales2);
 			}
 			modelo.addAttribute("sub", "sub");
-			System.out.println("los productos:" + materiales);
 		} else {
-			materiales = ms.buscarMaterialesPorCategoria(buscarProducto);
+			productos = ps.buscarProductoPorCategoria(buscarProducto);
 			if (buscarProducto.toUpperCase().equals("MESAS") || buscarProducto.toUpperCase().equals("MESA")
 					|| buscarProducto.toUpperCase().equals("SILLON") || buscarProducto.toUpperCase().equals("SILLONES")
 					|| buscarProducto.toUpperCase().equals("SILLAS") || buscarProducto.toUpperCase().equals("SOFAS")
@@ -176,11 +190,11 @@ public class PortalController {
 				modelo.addAttribute("sub", "sub");
 			}
 		}
-		if (materiales.isEmpty()) {
+		if (productos.isEmpty()) {
 			modelo.addAttribute("error", "No se encontraron resultados para su busqueda.");
 		}
-		modelo.addAttribute("list", materiales);
-		modelo.addAttribute("totalprod", materiales.size());
+		modelo.addAttribute("list", productos);
+		modelo.addAttribute("totalprod", productos.size());
 		return "buscar.html";
 	}
 
@@ -201,12 +215,10 @@ public class PortalController {
 	public ResponseEntity<byte[]> imagen(@PathVariable String codigomaterial, HttpSession session) throws Exception {
 
 		Foto prod = is.buscarFotoMaterialPorCodigo(codigomaterial);
-		System.out.println("el prod en el controlador " + prod);
 		if (prod != null) {
 
 			prod.setMime("image");
 
-			System.out.println("entramos");
 			MediaType content = checkContent(prod.getMime());
 
 			HttpHeaders headers = new HttpHeaders();
@@ -216,7 +228,6 @@ public class PortalController {
 
 		}
 		session.removeAttribute("foto");
-		System.out.println("la foto " + session.getAttribute("foto"));
 		return null;
 
 	}

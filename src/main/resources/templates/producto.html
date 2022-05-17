@@ -96,8 +96,10 @@
 						</div>
 
 						<div class="col-6">
-							<p class="anclaje text--right">Stock</p>
-							<p class="stock x1 text--right" th:text="${material.stock}"></p>
+							<p class="anclaje text--right"th:if="${material.stockRufino}">Stock</p> 
+							<p class="text--right">Rufino</p><p class="stock x1 text--right" th:if="${material.stockRufino}"th:text="${material.stockRufino}"></p>
+							<p class="stock x1 text--right" th:if="${material.stockBarracas}"th:text="${material.stockBarracas}"></p>
+							<p class="stock x1 text--right" th:if="${material.stockPalmares}"th:text="${material.stockPalmares}"></p>
 							
 							
 						</div>

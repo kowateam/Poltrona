@@ -1,21 +1,14 @@
 package com.api.poltrona.entidades;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-import org.hibernate.annotations.GenericGenerator;
-
-@Entity
 public class Producto {
-	@Id
-	@GeneratedValue(generator = "uuid")
-	@GenericGenerator(name = "uuid", strategy = "uuid2")
+
 	private Integer IdMaterial;
 	private String CodigoMaterial;
 	private String Material;
 	private String NombreCompleto;
-	private String Stock;
+	private String StockRufino;
+	private String StockBarracas;
+	private String StockPalmares;
 	private String Especificaciones;
 	private Integer Precio_unitario;
 	private byte[] Qr;
@@ -46,11 +39,24 @@ public class Producto {
 	public void setNombreCompleto(String nombreCompleto) {
 		NombreCompleto = nombreCompleto;
 	}
-	public String getStock() {
-		return Stock;
+
+	public String getStockRufino() {
+		return StockRufino;
 	}
-	public void setStock(String stock) {
-		Stock = stock;
+	public void setStockRufino(String stockRufino) {
+		StockRufino = stockRufino;
+	}
+	public String getStockBarracas() {
+		return StockBarracas;
+	}
+	public void setStockBarracas(String stockBarraca) {
+		StockBarracas = stockBarraca;
+	}
+	public String getStockPalmares() {
+		return StockPalmares;
+	}
+	public void setStockPalmares(String stockPalmares) {
+		StockPalmares = stockPalmares;
 	}
 	public String getEspecificaciones() {
 		return Especificaciones;

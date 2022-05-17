@@ -12,7 +12,7 @@ public class QrDAO extends DAO{
 	public Foto buscarQrMaterialPorCodigo(String codigomaterial) throws Exception {
 		try {
 			Foto img = new Foto();
-			String sql = "SELECT * FROM producto where codigo_material like '" +codigomaterial+"'";
+			String sql = "SELECT qr FROM producto where codigo_material like '" +codigomaterial+"'";
 			consultarBase(sql);
 			byte[] recuperado = null;
 			while(resultado.next()) {
