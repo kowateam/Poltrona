@@ -1,5 +1,6 @@
 package com.api.poltrona.controller;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,8 +81,8 @@ public class PortalController {
 
 	@GetMapping("/")
 	public String buscar(ModelMap modelo, HttpSession session) {
-		
-		
+
+		System.out.println(LocalDateTime.now());
 		List<Producto> productos = ps.buscarTodosLosProductos();
 		modelo.addAttribute("list", productos);
 		Usuario usuario = (Usuario) session.getAttribute("usuariosession");
@@ -90,27 +91,30 @@ public class PortalController {
 		modelo.addAttribute("totalprod", productos.size());
 		return "buscar.html";
 	}
-	//@PreAuthorize("hasRole('ROLE_ADMIN')")
+
+	// @PreAuthorize("hasRole('ROLE_ADMIN')")
 	@GetMapping("crear")
 	public String crearProducto() throws Exception {
-		//ps.crearProductoBarraca();
-		//ps.crearProductoRufino();
-		ps.crearProductoPalmares();
+		ps.crearProductoBarraca();
+		ps.crearProductoRufino();
+		// ps.crearProductoPalmares();
 		return "redirect:/";
 	}
-	
+
 	@GetMapping("/stock")
 	public String modificarStock() {
 		try {
 			ps.buscarStockRufino();
 			ps.buscarStockBarracas();
+			// ps.buscarSockPalmares();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return "redirect:/";
 	}
+
 	@GetMapping("/buscar/{categoria}")
 	public String buscarCategoria(@PathVariable String categoria, ModelMap modelo) {
 		List<Producto> productos = new ArrayList<>();
@@ -118,7 +122,7 @@ public class PortalController {
 		if (categoria.equals("MUEBLES")) {
 
 			productos = ps.buscarProductoPorCategoria("MUEBLES");
-			producto2 =ps.buscarProductoPorCategoria("MESAS");
+			producto2 = ps.buscarProductoPorCategoria("MESAS");
 			for (Producto materiales2 : producto2) {
 				productos.add(materiales2);
 			}
